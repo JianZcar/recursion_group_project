@@ -1,0 +1,54 @@
+def union_operation(set_a, set_b, index_a: int = 0, index_b: int = 0):
+    if index_a == len(set_a) or index_b == len(set_b):
+        return []
+
+    union_result = []
+
+    for i in set_a:
+        union_result.append(int(i))
+
+    for i in set_b:
+        union_result.append(int(i))
+
+    union_set = set(union_result)
+    union_result_final = sorted(union_set)
+
+    return union_result_final
+
+
+def intersection_operation(set_a, set_b, index_a: int = 0, index_b: int = 0):
+    if index_a == len(set_a) or index_b == len(set_b):
+        return []
+
+    intersection_result = []
+
+    for i in set_a:
+        if i in set_b:
+            intersection_result.append(i)
+
+    intersection_set = set(intersection_result)
+    intersection_result_final = sorted(intersection_set)
+
+    return intersection_result_final
+
+
+def set_operations():  # Main function to take user input for sets A and B, do set operations, and find cardinality
+
+    set_a = input("Enter elements for set A separated by commas: ").split(',')
+    set_b = input("Enter elements for set B separated by commas: ").split(',')
+
+    union_result = union_operation(set_a, set_b)
+    cardinality_union = len(union_result)
+
+    intersection_result = intersection_operation(set_a, set_b)
+    cardinality_intersection = len(intersection_result)
+
+    return union_result, cardinality_union, intersection_result, cardinality_intersection
+
+
+if __name__ == '__main__':
+    union, cardinality_union, intersection, cardinality_intersection = set_operations()
+    print("Union of set A and set B:", union)
+    print("Total cardinality of the union:", cardinality_union)
+    print("\nIntersection of set A and set B:", intersection)
+    print("Total cardinality of the intersection:", cardinality_intersection)
