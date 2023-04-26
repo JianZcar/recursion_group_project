@@ -18,7 +18,7 @@ def two_set_operation(function_to_call, operation_: str = "") -> None:
             if len(list_input) == 2:
                 set_: str = str(
                     function_to_call(set(list_input[0]), set(list_input[1])
-                                     )).replace("[", "").replace("]", "")
+                                     )).replace("[", "").replace("]", "").replace("{", "(").replace("}", ")")
                 print(set_)
                 print(f"Cardinality: {len(function_to_call(set(list_input[0]), set(list_input[1])))}")
                 print("\n")
